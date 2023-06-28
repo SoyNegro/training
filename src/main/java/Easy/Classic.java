@@ -1,5 +1,8 @@
 package Easy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Classic {
     public static void main(String[] args) {
         System.out.println(isPalindrome("())("));
@@ -7,6 +10,8 @@ public class Classic {
 
         System.out.println(isAnagram("cuba","bacu"));
         System.out.println(isAnagram("bacu","acu"));
+
+        System.out.println(fibonacci(8));
     }
     /**
      * Classic easy problem
@@ -24,5 +29,22 @@ public class Classic {
     static boolean isAnagram(String s1, String s2){
         if(s1.length()!=s2.length()) return false;
         return s1.chars().sum() == s1.chars().sum();
+    }
+
+    /**
+     * Classic easy problem
+     * Given a number n return a List containing the first n-numbers of the Fibonnaci Sequence
+     * */
+    static List<Integer> fibonacci(int n){
+        var num1 = 0;
+        var num2 = 1;
+        var list = new ArrayList<Integer>();
+        for (int i = 0; i < n; i++) {
+            list.add(num1);
+            var num3 = num1 + num2;
+            num1 = num2;
+            num2 = num3;
+        }
+        return list;
     }
 }
